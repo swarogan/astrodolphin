@@ -7,8 +7,8 @@
 <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    "three": "./vendor/three/three.module.min.js",
+    "three/addons/": "./vendor/three/addons/"
   }
 }
 </script>
@@ -605,10 +605,10 @@ function setLoad(p, text) {
 }
 
 /* --------------------------- ładowanie three.js --------------------------- */
+// Lokalna kopia three.js r169 (vendor/three), bez pobierania z zewnątrz.
+// Ten sam adres co w importmapie, więc GLTFLoader współdzieli ten sam moduł.
 const THREE_URLS = [
-  'https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js',
-  'https://unpkg.com/three@0.169.0/build/three.module.js',
-  'https://esm.sh/three@0.169.0'
+  './vendor/three/three.module.min.js'
 ];
 
 async function loadThree() {
